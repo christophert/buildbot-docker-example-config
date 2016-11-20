@@ -24,7 +24,10 @@ services:
         - 5432
 
   worker:
-    image: "buildbot/buildbot-worker:master"
+    #image: "buildbot/buildbot-worker:master"
+    build:
+        dockerfile: Dockerfile-worker
+        context: .
     environment:
         BUILDMASTER: buildbot
         BUILDMASTER_PORT: 9989
