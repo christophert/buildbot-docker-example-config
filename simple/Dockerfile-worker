@@ -18,8 +18,10 @@ RUN  curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
         cppcheck \
         g++ \
         valgrind \
-        zzuf \
+        wget \
         git && \
+    wget -O /tmp/zzuf.deb http://mirrors.kernel.org/ubuntu/pool/universe/z/zzuf/zzuf_0.13.svn20100215-4_amd64.deb && \
+    dpkg -i /tmp/zzuf.deb && \
     rm -rf /var/lib/apt/lists/*
 
 user buildbot
